@@ -1,12 +1,11 @@
-import express, { Router } from 'express'
-import { TodoController } from '../controllers/todos.js'
+import express, { Router } from 'express';
+import todoController from '../controllers/todos.js';
 
-const router = Router()
+const router = Router();
 
-router.post('/new-todo', (req, res) => TodoController.createTodo(req, res))
-router.get('/', (req, res) => TodoController.getTodos(req, res))
-router.patch('/:id', (req, res) => TodoController.updateTodo(req, res))
+router.post('/new-todo', (req, res) => todoController.createTodo(req, res));
+router.get('/', (req, res) => todoController.getTodos(req, res));
+router.patch('/:id', (req, res) => todoController.updateTodo(req, res));
+router.delete('/:id', (req, res) => todoController.deleteTodo(req, res));
 
-router.delete('/:id', (req, res) => TodoController.deleteTodo(req, res))
-
-export default router
+export default router;
